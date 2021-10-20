@@ -10,7 +10,7 @@ const ldapConfPath = path.resolve('test/ldap.conf');
 const ldapConfig = new OpenLDAPConfig(readFileSync(ldapConfPath, 'utf8'));
 const ldapClientFactory = new LDAPClientFactory();
 
-const expected = 'mysql://localhost/testapp';
+const expected = 'mysql://develdb.net.ilb.ru/testapp';
 
 test('getInstance', async () => {
   const ldapClient = ldapClientFactory.getLDAPClient(new LDAPClientConfig(ldapConfig));

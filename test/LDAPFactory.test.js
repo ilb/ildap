@@ -1,5 +1,5 @@
 import LDAPFactory from '../src/LDAPFactory';
-const expected = 'mysql://localhost/testapp';
+const expected = 'mysql://develdb.net.ilb.ru/testapp';
 
 const ldapFactory = new LDAPFactory('test/ldap.conf');
 
