@@ -1,4 +1,4 @@
-import LDAPLastMod from './LDAPLastMod';
+import LDAPLastMod from './LDAPLastMod.js';
 /**
  * LastMod based LdapCache
  * cache invalidated in getInstance call

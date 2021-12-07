@@ -1,4 +1,4 @@
-import LDAPConfig from './LDAPConfig';
+import LDAPConfig from './LDAPConfig.js';
 
 export default class OpenLDAPConfig extends LDAPConfig {
   constructor(config) {

@@ -1,9 +1,9 @@
 import { existsSync, readFileSync } from 'fs';
-import OpenLDAPConfig from './OpenLDAPConfig';
-import URILDAPConfig from './URILDAPConfig';
-import LDAPClientConfig from './LDAPClientConfig';
-import LDAPClientFactory from './LDAPClientFactory';
-import CacheableLDAPResource from './CacheableLDAPResource';
+import OpenLDAPConfig from './OpenLDAPConfig.js';
+import URILDAPConfig from './URILDAPConfig.js';
+import LDAPClientConfig from './LDAPClientConfig.js';
+import LDAPClientFactory from './LDAPClientFactory.js';
+import CacheableLDAPResource from './CacheableLDAPResource.js';
 import createDebug from 'debug';
 
 const debug = createDebug('node_ldap');

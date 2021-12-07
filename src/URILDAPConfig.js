@@ -1,5 +1,5 @@
 import { parse, format } from 'url';
-import LDAPConfig from './LDAPConfig';
+import LDAPConfig from './LDAPConfig.js';
 
 /**
  * Configure LDAP from URI

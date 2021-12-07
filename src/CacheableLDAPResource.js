@@ -1,5 +1,5 @@
-import LDAPResource from './LDAPResource';
-import LDAPCache from './LDAPCache';
+import LDAPResource from './LDAPResource.js';
+import LDAPCache from './LDAPCache.js';
 
 /**
  * lookup LDAP resources with cache
