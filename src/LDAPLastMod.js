@@ -1,14 +1,11 @@
-export default class LDAPLastMod {
-  constructor(ldapClient, base, options) {
-    this.ldapClient = ldapClient;
-    this.base = base || 'cn=lastmod,c=ru';
-    this.options = options || {
-      filter: '(objectClass=lastmod)',
-      attributes: ['modifyTimestamp']
-    };
-  }
-
-  async getLastMod() {
+export default function LDAPLastMod(ldapClient, base, options) {
+  this.ldapClient = ldapClient;
+  this.base = base || 'cn=lastmod,c=ru';
+  this.options = options || {
+    filter: '(objectClass=lastmod)',
+    attributes: ['modifyTimestamp']
+  };
+  LDAPLastMod.prototype.getLastMod = async function () {
     let entries = [];
     try {
       entries = await this.ldapClient.search(this.base, this.options);
@@ -33,5 +30,5 @@ export default class LDAPLastMod {
       );
     }
     return dateLastMod;
-  }
+  };
 }
