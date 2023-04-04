@@ -1,4 +1,3 @@
-import { parse, format } from 'url';
 import LDAPConfig from './LDAPConfig.js';
 
 /**
@@ -8,10 +7,10 @@ import LDAPConfig from './LDAPConfig.js';
 export default class URILDAPConfig extends LDAPConfig {
   constructor(uri, caCert) {
     super();
-    const urlobj = parse(uri);
+    const urlobj = new URL(uri);
     this.base = urlobj.pathname.substring(1);
-    urlobj.pathname = null;
-    this.uri = [format(urlobj)];
+    urlobj.pathname = '';
+    this.uri = [urlobj.toString()];
     this.caCert = caCert;
   }
 }
