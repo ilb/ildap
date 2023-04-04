@@ -1,0 +1,16 @@
+dn: ou=apps,dc=iconicompany,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: apps
+
+dn: ou=testapp,ou=apps,dc=iconicompany,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: testapp
+
+dn: cn=com.iconicompany.apps.testapp.db,ou=testapp,ou=apps,dc=iconicompany,dc=com
+objectClass: top
+objectClass: applicationProcess
+objectClass: labeledURIObject
+cn: com.iconicompany.apps.testapp.db
+labeledURI: mysql://localhost/testapp
