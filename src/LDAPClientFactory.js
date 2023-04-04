@@ -1,5 +1,5 @@
 import LdapClient from 'ldapjs-client';
-//import ShutdownHook from 'shutdown-hook';
+//import Ldap from 'ldap-async';
 
 /**
  * LDAP client factory fith connection reuse
@@ -9,13 +9,6 @@ import LdapClient from 'ldapjs-client';
 class LDAPClientFactory {
   constructor() {
     this.connections = {};
-    //        const shutdownHook = new ShutdownHook({});
-    //shutdownHook.add(_ => this.close(), {})
-    //shutdownHook.add(_ => console.log('shutdown!!!'), {})
-    //        const exitHook = require('exit-hook');
-    //        exitHook(() => {
-    //            console.log('Exiting!!!');
-    //        });
   }
 
   close() {

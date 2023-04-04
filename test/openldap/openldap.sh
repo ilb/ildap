@@ -12,6 +12,10 @@ docker run  \
     --env LDAP_DOMAIN="iconicompany.com" \
     --env LDAP_ADMIN_PASSWORD="StrongAdminPassw0rd" \
     --env LDAP_BASE_DN="dc=iconicompany,dc=com" \
+    --env LDAP_TLS_CRT_FILENAME=ldaptest.crt \
+    --env LDAP_TLS_KEY_FILENAME=ldaptest.key \
+    --env LDAP_TLS_CA_CRT_FILENAME=ca.crt \
     --volume ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom \
-   -p 1389:389 \
+    --volume ./certs:/container/service/slapd/assets/certs \
+   -p 1389:389 -p 1636:636 \
    osixia/openldap:latest --copy-service --loglevel debug

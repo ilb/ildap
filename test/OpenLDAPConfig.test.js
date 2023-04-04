@@ -12,7 +12,7 @@ const ldapConfigUnc = new OpenLDAPConfig(readFileSync(ldapConfPathUnc, 'utf8'));
 
 const expectedConfig = {
   BASE: 'dc=iconicompany,dc=com',
-  TLS_CACERT: '/etc/ssl/certs/ourCAbundle.crt',
+  TLS_CACERT: 'test/openldap/certs/ca.crt',
   URI: 'ldapi:/// ldap://localhost:1389'
 };
 
@@ -33,7 +33,7 @@ test('base', () => {
 });
 
 test('caCert', () => {
-  expect(ldapConfig.caCert).toBe('/etc/ssl/certs/ourCAbundle.crt');
+  expect(ldapConfig.caCert).toBe('test/openldap/certs/ca.crt');
 });
 
 test('isConfigured', () => {
