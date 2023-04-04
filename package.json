@@ -17,6 +17,7 @@
     "src"
   ],
   "dependencies": {
+    "debug": "^4.3.4",
     "ldapjs-client": "^0.1.1"
   },
   "devDependencies": {

@@ -14,4 +14,4 @@ docker run  \
     --env LDAP_BASE_DN="dc=iconicompany,dc=com" \
     --volume ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom \
    -p 1389:389 \
-   osixia/openldap:latest --copy-service
+   osixia/openldap:latest --copy-service --loglevel debug

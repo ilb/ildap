@@ -10,13 +10,15 @@ const ldapConfPath = path.resolve('test/ldap.conf');
 const ldapConfig = new OpenLDAPConfig(readFileSync(ldapConfPath, 'utf8'));
 const ldapClientFactory = new LDAPClientFactory();
 
-const expected = 'mysql://develdb.net.ilb.ru/testapp';
+const expected = 'mysql://localhost/testapp';
 
 test('search', async () => {
   const ldapClient = ldapClientFactory.getLDAPClient(new LDAPClientConfig(ldapConfig));
   const ldapResource = new LDAPResource(ldapClient);
-  const resourceUrl = await ldapResource.lookup('ru.bystrobank.apps.testapp.db', 'c=ru');
+  const resourceUrl = await ldapResource.lookup(
+    'com.iconicompany.apps.testapp.db',
+    'dc=iconicompany,dc=com'
+  );
   expect(resourceUrl).toBe(expected);
-
   ldapClientFactory.close();
 });

@@ -12,11 +12,13 @@ export default class LDAPResource {
       scope: 'sub',
       attributes: ['labeledURI']
     };
-    let entries = null;
+    let entries = [];
     try {
       entries = await this.ldapClient.search(base, options);
     } catch (ex) {
-      throw new Error('LDAP lookup failed ' + ex);
+      if (ex.name !== 'NoSuchObjectError') {
+        throw new Error('LDAP lookup failed ' + ex);
+      }
     }
     //console.log('entries',entries);
     let result = null;

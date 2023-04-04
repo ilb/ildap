@@ -11,9 +11,9 @@ const ldapConfPathUnc = path.resolve('test/unconfiguredldap.conf');
 const ldapConfigUnc = new OpenLDAPConfig(readFileSync(ldapConfPathUnc, 'utf8'));
 
 const expectedConfig = {
-  BASE: 'c=ru',
+  BASE: 'dc=iconicompany,dc=com',
   TLS_CACERT: '/etc/ssl/certs/ourCAbundle.crt',
-  URI: 'ldapi:/// ldaps://devel.net.ilb.ru ldaps://ldap.net.ilb.ru ldaps://ldap2.net.ilb.ru'
+  URI: 'ldapi:/// ldap://localhost:1389'
 };
 
 test('parseConfig', () => {
@@ -22,18 +22,14 @@ test('parseConfig', () => {
   );
 });
 
-const expectedUri = [
-  'ldaps://devel.net.ilb.ru',
-  'ldaps://ldap.net.ilb.ru',
-  'ldaps://ldap2.net.ilb.ru'
-];
+const expectedUri = ['ldap://localhost:1389'];
 
 test('uri', () => {
   expect(ldapConfig.uri).toStrictEqual(expectedUri);
 });
 
 test('base', () => {
-  expect(ldapConfig.base).toBe('c=ru');
+  expect(ldapConfig.base).toBe('dc=iconicompany,dc=com');
 });
 
 test('caCert', () => {

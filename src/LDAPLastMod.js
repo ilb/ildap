@@ -1,16 +1,24 @@
 export default class LDAPLastMod {
-  constructor(ldapClient) {
+  constructor(ldapClient, base, options) {
     this.ldapClient = ldapClient;
-  }
-
-  async getLastMod() {
-    const options = {
+    this.base = base || 'cn=lastmod,c=ru';
+    this.options = options || {
       filter: '(objectClass=lastmod)',
       attributes: ['modifyTimestamp']
     };
+  }
 
-    const entries = await this.ldapClient.search('cn=lastmod,c=ru', options);
-    let dateLastMod = null;
+  async getLastMod() {
+    let entries = [];
+    try {
+      entries = await this.ldapClient.search(this.base, this.options);
+    } catch (ex) {
+      if (ex.name !== 'NoSuchObjectError') {
+        throw new Error('LDAP lookup failed ' + ex);
+      }
+    }
+
+    let dateLastMod = new Date();
     if (entries.length === 1 && entries[0].modifyTimestamp) {
       const rawLastMod = entries[0].modifyTimestamp.match(
         /^([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})Z$/
