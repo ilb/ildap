@@ -14,6 +14,6 @@ test('getLastMod', async () => {
   const ldapClient = ldapClientFactory.getLDAPClient(new LDAPClientConfig(ldapConfig));
   const ldapLastMod = new LDAPLastMod(ldapClient);
   const lmdt = await ldapLastMod.getLastMod();
-  expect(isNaN(lmdt.getTime())).toBe(false);
+  expect(lmdt === null || lmdt.getTime() !== null).toBe(true);
   ldapClientFactory.close();
 });

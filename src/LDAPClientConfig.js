@@ -7,7 +7,7 @@ class LDAPClientConfig {
   constructor(ldapConfig) {
     this.url = ldapConfig.uri[0];
     if (ldapConfig.caCert) {
-      this.tlsOptions = [readFileSync(ldapConfig.caCert)];
+      this.tlsOptions = { ca: readFileSync(ldapConfig.caCert) };
     }
   }
 }

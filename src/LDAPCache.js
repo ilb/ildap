@@ -17,7 +17,7 @@ export default class LDAPCache {
       LDAPCache.cache = {};
     }
     // invalidate cache
-    if (LDAPCache.cacheDate && LDAPCache.cacheDate < lmdt) {
+    if (LDAPCache.cacheDate && lmdt && LDAPCache.cacheDate < lmdt) {
       LDAPCache.cache = {};
       LDAPCache.cacheDate = lmdt;
     }

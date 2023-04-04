@@ -18,7 +18,7 @@ export default class LDAPLastMod {
       }
     }
 
-    let dateLastMod = new Date();
+    let dateLastMod = null;
     if (entries.length === 1 && entries[0].modifyTimestamp) {
       const rawLastMod = entries[0].modifyTimestamp.match(
         /^([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})Z$/
