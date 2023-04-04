@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import OpenLDAPConfig from '../src/OpenLDAPConfig';
+import OpenLDAPConfig, { parseConfig } from '../src/OpenLDAPConfig';
 import * as path from 'path';
 
 const ldapConfPath = path.resolve('test/ldap.conf');
@@ -17,9 +17,7 @@ const expectedConfig = {
 };
 
 test('parseConfig', () => {
-  expect(OpenLDAPConfig.parseConfig(readFileSync(ldapConfPath, 'utf8'))).toStrictEqual(
-    expectedConfig
-  );
+  expect(parseConfig(readFileSync(ldapConfPath, 'utf8'))).toStrictEqual(expectedConfig);
 });
 
 const expectedUri = ['ldap://localhost:1389'];
