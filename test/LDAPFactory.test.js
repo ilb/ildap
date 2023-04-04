@@ -1,4 +1,5 @@
-import LDAPFactory from '../src/LDAPFactory';
+const LDAPFactory = require('../src/LDAPFactory.js');
+
 const expected = 'mysql://localhost/testapp';
 
 const ldapFactory = new LDAPFactory('test/ldap.conf');

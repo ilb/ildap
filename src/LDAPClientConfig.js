@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+const { readFileSync } = require('fs');
 
 /**
  * This class builds params structure for ldapjs-client from LDAPConfig structure
@@ -12,4 +12,4 @@ class LDAPClientConfig {
   }
 }
 
-export default LDAPClientConfig;
+module.exports = LDAPClientConfig;

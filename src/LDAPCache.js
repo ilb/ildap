@@ -1,9 +1,9 @@
-import LDAPLastMod from './LDAPLastMod.js';
+const LDAPLastMod = require('./LDAPLastMod.js');
 /**
  * LastMod based LdapCache
  * cache invalidated in getInstance call
  */
-export default class LDAPCache {
+class LDAPCache {
   static async getInstance(ldapClient) {
     await LDAPCache.invalidateCache(ldapClient);
     return new LDAPCache();
@@ -39,3 +39,5 @@ export default class LDAPCache {
     LDAPCache.cache[name] = value;
   }
 }
+
+module.exports = LDAPCache;

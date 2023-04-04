@@ -1,6 +1,6 @@
-import { readFileSync } from 'fs';
-import OpenLDAPConfig, { parseConfig } from '../src/OpenLDAPConfig';
-import * as path from 'path';
+const path = require('path');
+const { readFileSync } = require('fs');
+const OpenLDAPConfig = require('../src/OpenLDAPConfig.js');
 
 const ldapConfPath = path.resolve('test/ldap.conf');
 
@@ -9,16 +9,6 @@ const ldapConfig = new OpenLDAPConfig(readFileSync(ldapConfPath, 'utf8'));
 const ldapConfPathUnc = path.resolve('test/unconfiguredldap.conf');
 
 const ldapConfigUnc = new OpenLDAPConfig(readFileSync(ldapConfPathUnc, 'utf8'));
-
-const expectedConfig = {
-  BASE: 'dc=iconicompany,dc=com',
-  TLS_CACERT: 'test/openldap/certs/ca.crt',
-  URI: 'ldapi:/// ldap://localhost:1389'
-};
-
-test('parseConfig', () => {
-  expect(parseConfig(readFileSync(ldapConfPath, 'utf8'))).toStrictEqual(expectedConfig);
-});
 
 const expectedUri = ['ldap://localhost:1389'];
 

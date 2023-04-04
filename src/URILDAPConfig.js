@@ -2,7 +2,7 @@
  * Configure LDAP from URI
  * example: ldaps://devel.net.ilb.ru/c=ru
  */
-export default function URILDAPConfig(uri, caCert) {
+function URILDAPConfig(uri, caCert) {
   const urlobj = new URL(uri);
   this.base = urlobj.pathname.substring(1);
   urlobj.pathname = '';
@@ -16,3 +16,5 @@ export default function URILDAPConfig(uri, caCert) {
 URILDAPConfig.prototype.isConfigured = function () {
   return this.uri && this.uri.length > 0;
 };
+
+module.exports = URILDAPConfig;

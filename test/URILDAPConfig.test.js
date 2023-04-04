@@ -1,4 +1,4 @@
-import URILDAPConfig from '../src/URILDAPConfig';
+const URILDAPConfig = require('../src/URILDAPConfig.js');
 
 const ldapConfig = new URILDAPConfig(
   'ldaps://devel.net.ilb.ru/c=ru',

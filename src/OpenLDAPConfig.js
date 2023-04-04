@@ -1,4 +1,4 @@
-export default function OpenLDAPConfig(config) {
+function OpenLDAPConfig(config) {
   const ldapSchemasRegexp = /^ldaps?:\/\//;
   const configMap = parseConfig(config);
   this.uri = [];
@@ -15,7 +15,7 @@ OpenLDAPConfig.prototype.isConfigured = function () {
   return this.uri && this.uri.length > 0;
 };
 
-export function parseConfig(config) {
+function parseConfig(config) {
   const alllines = config.split(/\r?\n/);
   const lines = alllines
     .map((l) => l.replace(/#.*$/, '').trim()) // remove comments and trim
@@ -30,3 +30,5 @@ export function parseConfig(config) {
   //console.log(map);
   return map;
 }
+
+module.exports = OpenLDAPConfig;

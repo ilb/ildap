@@ -1,10 +1,10 @@
-import LDAPResource from './LDAPResource.js';
-import LDAPCache from './LDAPCache.js';
+const LDAPResource = require('./LDAPResource.js');
+const LDAPCache = require('./LDAPCache.js');
 
 /**
  * lookup LDAP resources with cache
  */
-export default class CacheableLDAPResource {
+class CacheableLDAPResource {
   static async getInstance(ldapClient, base) {
     const ldapCache = await LDAPCache.getInstance(ldapClient);
     return new CacheableLDAPResource(new LDAPResource(ldapClient, base), ldapCache);
@@ -25,3 +25,5 @@ export default class CacheableLDAPResource {
     return value;
   }
 }
+
+module.exports = CacheableLDAPResource;

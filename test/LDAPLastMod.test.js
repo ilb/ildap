@@ -1,10 +1,9 @@
-import { readFileSync } from 'fs';
-import OpenLDAPConfig from '../src/OpenLDAPConfig';
-import LDAPClientConfig from '../src/LDAPClientConfig';
-import LDAPClientFactory from '../src/LDAPClientFactory';
-import LDAPLastMod from '../src/LDAPLastMod';
-import * as path from 'path';
-
+const path = require('path');
+const { readFileSync } = require('fs');
+const OpenLDAPConfig = require('../src/OpenLDAPConfig.js');
+const LDAPClientConfig = require('../src/LDAPClientConfig.js');
+const LDAPClientFactory = require('../src/LDAPClientFactory.js');
+const LDAPLastMod = require('../src/LDAPLastMod.js');
 const ldapConfPath = path.resolve('test/ldap.conf');
 
 const ldapConfig = new OpenLDAPConfig(readFileSync(ldapConfPath, 'utf8'));

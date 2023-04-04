@@ -1,4 +1,4 @@
-export default function LDAPResource(ldapClient, base) {
+function LDAPResource(ldapClient, base) {
   this.ldapClient = ldapClient;
   this.base = base;
   this.lookupCount = 0;
@@ -27,3 +27,5 @@ LDAPResource.prototype.lookup = async function (name, base) {
   this.lookupCount++;
   return result;
 };
+
+module.exports = LDAPResource;

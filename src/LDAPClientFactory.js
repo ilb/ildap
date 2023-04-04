@@ -1,4 +1,5 @@
-import LdapClient from 'ldapjs-client';
+const LdapClient = require('ldapjs-client');
+
 //import Ldap from 'ldap-async';
 
 /**
@@ -25,4 +26,4 @@ class LDAPClientFactory {
   }
 }
 
-export default LDAPClientFactory;
+module.exports = LDAPClientFactory;

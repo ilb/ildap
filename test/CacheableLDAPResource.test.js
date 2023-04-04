@@ -1,9 +1,9 @@
-import * as path from 'path';
-import { readFileSync } from 'fs';
-import OpenLDAPConfig from '../src/OpenLDAPConfig';
-import LDAPClientConfig from '../src/LDAPClientConfig';
-import LDAPClientFactory from '../src/LDAPClientFactory';
-import CacheableLDAPResource from '../src/CacheableLDAPResource';
+const path = require('path');
+const { readFileSync } = require('fs');
+const OpenLDAPConfig = require('../src/OpenLDAPConfig.js');
+const LDAPClientConfig = require('../src/LDAPClientConfig.js');
+const LDAPClientFactory = require('../src/LDAPClientFactory.js');
+const CacheableLDAPResource = require('../src/CacheableLDAPResource.js');
 
 const ldapConfPath = path.resolve('test/ldap.conf');
 

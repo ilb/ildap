@@ -1,4 +1,4 @@
-export default function LDAPLastMod(ldapClient, base, options) {
+function LDAPLastMod(ldapClient, base, options) {
   this.ldapClient = ldapClient;
   this.base = base || 'cn=lastmod,c=ru';
   this.options = options || {
@@ -32,3 +32,5 @@ export default function LDAPLastMod(ldapClient, base, options) {
     return dateLastMod;
   };
 }
+
+module.exports = LDAPLastMod;
