@@ -16,19 +16,11 @@ export default class LDAPFactory {
     if (process.env.LDAP_URL) {
       //configure using LDAP_URL variable if set
       this.ldapConfig = new URILDAPConfig(process.env.LDAP_URL, process.env.NODE_EXTRA_CA_CERTS);
-      debug(
-        'configured using LDAP_URL (%s) isConfigured=%o',
-        process.env.LDAP_URL,
-        this.ldapConfig.isConfigured()
-      );
+      debug('configured using LDAP_URL', this.ldapConfig);
     } else if (existsSync(ldapConfPath)) {
       //configure using openldap configuration file
       this.ldapConfig = new OpenLDAPConfig(readFileSync(ldapConfPath, 'utf8'));
-      debug(
-        'configured using ldap config file (%s) isConfigured=%o',
-        ldapConfPath,
-        this.ldapConfig.isConfigured()
-      );
+      debug('configured using ldap config file', ldapConfPath, this.ldapConfig);
     }
     this.ldapClientFactory = new LDAPClientFactory();
     this.ldapClient = null;

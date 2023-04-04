@@ -7,7 +7,7 @@
   "type": "module",
   "main": "src/LDAPFactory.js",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --use-openssl-ca --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "browser": {
     "fs": false,
