@@ -7,7 +7,7 @@ const CacheableLDAPResource = require('./CacheableLDAPResource.js');
 const createDebug = require('debug');
 const { getLdapConfPath } = require('./defaults.js');
 
-const debug = createDebug('node_ldap');
+const debug = createDebug('ildap');
 
 /**
  * LDAP facade with auto-configuration
