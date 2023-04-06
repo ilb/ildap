@@ -2,9 +2,9 @@
  * Configure LDAP from URI
  * example: ldaps://devel.net.ilb.ru/c=ru
  */
-function URILDAPConfig(uri, caCert) {
+function URILDAPConfig(uri, base, caCert) {
   const urlobj = new URL(uri);
-  this.base = urlobj.pathname.substring(1);
+  this.base = base || urlobj.pathname.substring(1);
   urlobj.pathname = '';
   this.uri = [urlobj.toString()];
   this.caCert = caCert;

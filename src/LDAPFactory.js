@@ -5,21 +5,30 @@ const LDAPClientConfig = require('./LDAPClientConfig.js');
 const LDAPClientFactory = require('./LDAPClientFactory.js');
 const CacheableLDAPResource = require('./CacheableLDAPResource.js');
 const createDebug = require('debug');
+const { getLdapConfPath } = require('./defaults.js');
 
 const debug = createDebug('node_ldap');
+
 /**
  * LDAP facade with auto-configuration
  */
-function LDAPFactory(ldapConfPath = '/etc/openldap/ldap.conf') {
+function LDAPFactory(ldapConfPath) {
   this.ldapConfig = null;
-  if (process.env.LDAP_URL) {
-    //configure using LDAP_URL variable if set
-    this.ldapConfig = new URILDAPConfig(process.env.LDAP_URL, process.env.NODE_EXTRA_CA_CERTS);
-    debug('configured using LDAP_URL', this.ldapConfig);
-  } else if (existsSync(ldapConfPath)) {
-    //configure using openldap configuration file
-    this.ldapConfig = new OpenLDAPConfig(readFileSync(ldapConfPath, 'utf8'));
-    debug('configured using ldap config file', ldapConfPath, this.ldapConfig);
+  if (process.env.LDAPURI) {
+    //configure using LDAPURI variable if set
+    this.ldapConfig = new URILDAPConfig(
+      process.env.LDAPURI,
+      process.env.LDAPBASE,
+      process.env.LDAPTLS_CACERT
+    );
+    debug('configured using LDAPURI', this.ldapConfig);
+  } else {
+    ldapConfPath = ldapConfPath || getLdapConfPath();
+    if (ldapConfPath && existsSync(ldapConfPath)) {
+      //configure using openldap configuration file
+      this.ldapConfig = new OpenLDAPConfig(readFileSync(ldapConfPath, 'utf8'));
+      debug('configured using ldap config file', ldapConfPath, this.ldapConfig);
+    }
   }
   this.ldapClientFactory = new LDAPClientFactory();
   this.ldapClient = null;
