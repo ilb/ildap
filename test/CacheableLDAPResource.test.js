@@ -35,7 +35,10 @@ test('getInstance', async () => {
   // second call should be cached
   expect(ldapResource.ldapResource.lookupCount).toBe(1);
 
-  resourceUrl = await ldapResource.lookup('ru.bystrobank.apps.bailverification.db', 'c=ru');
+  resourceUrl = await ldapResource.lookup(
+    'com.iconicompany.apps.testapp.ws',
+    'dc=iconicompany,dc=com'
+  );
 
   expect(ldapResource.ldapResource.lookupCount).toBe(2);
 

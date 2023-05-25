@@ -21,3 +21,9 @@ objectClass: applicationProcess
 objectClass: labeledURIObject
 cn: com.iconicompany.apps.testapp.ws
 labeledURI: http://localhost/testapp
+
+dn: cn=com.iconicompany.apps.testapp.users,ou=testapp,ou=apps,dc=iconicompany,dc=com
+objectClass: posixGroup
+cn: cn=com.iconicompany.apps.testapp.users
+gidNumber: 10000
+
