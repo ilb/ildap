@@ -13,7 +13,7 @@ importers:
         version: 4.4.0
       ldapjs-client:
         specifier: ^0.1.1
-        version: 0.1.5
+        version: 0.1.6
     devDependencies:
       eslint:
         specifier: ^9.19.0
@@ -1190,8 +1190,8 @@ packages:
     resolution: {integrity: sha512-/tFkx5WIn4HuO+6w9lsfxq4FN3O+fDZeO9Mek8dCD8rTUpqzRa766BOBO7BcGkn3X86m5+cBm1/2S/Shzz7gMg==}
     engines: {node: '>=0.8'}
 
-  ldapjs-client@0.1.5:
-    resolution: {integrity: sha512-LBbvKRDHKLlVFIoqS3Za8evttFcZ6cWfhwYLLYG8xCgzQs2DuXXwURedwCeq1F8PJBG5QoiBGW7IFIwIYtK56w==}
+  ldapjs-client@0.1.6:
+    resolution: {integrity: sha512-phou8IL9YVMCAhhR0MUIx4hHBxIXIC9REfXvcF1ZdKBbSWa8hBGGbARzoYOexp7a08TACXYZ2+6DGv0Xy4Sm6g==}
     engines: {node: '>=8.0'}
 
   leven@3.1.0:
@@ -3086,7 +3086,7 @@ snapshots:
     dependencies:
       assert-plus: 1.0.0
 
-  ldapjs-client@0.1.5:
+  ldapjs-client@0.1.6:
     dependencies:
       asn1: 0.2.6
       assert-plus: 1.0.0
